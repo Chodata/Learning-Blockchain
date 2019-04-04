@@ -49,12 +49,9 @@ class Blockchain:
             if i['previous_hash'] != self.hash_block(previous_block):
                 return False
             
-            if self.proofing(i,previous_block) != '0000':
+            if self.proofing(i["proof"],previous_block["proof"])[:4] != '0000':
                 return False
             previous_block = i
             
         return True
     
-print('a')
-b = Blockchain()
-print(b.hash(b.chain[0]))
